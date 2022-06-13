@@ -1,7 +1,8 @@
+using _11_insert_into_table_using_transaction;
 using AddressBook;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject9
+namespace TestProject11
 {
     [TestClass]
     public class UnitTest1
@@ -80,11 +81,25 @@ namespace TestProject9
             string actual = addressBookRepository.ContactDataBasedOnType();
             Assert.AreEqual(expected, actual);
         }
+        //UC 11: Add Date_Added Column if Contad_ID>2
+        [TestMethod]
+        public void GivenUpdateQuery_UsingTransaction_ContadIDLesserthan2_ReturnInt()
+        {
+            TransactionClass transactions = new TransactionClass();
+            int expected = 2;
+            int actual = transactions.SetStartDateValue("update Contact_Person set Date_Added='2017-08-12' where Contact_ID <= 2");
+            Assert.AreEqual(expected, actual);
+        }
+        //UC 11: Insert into Table using Transactions
+        [TestMethod]
+        public void GivenSelectQuery_UsingTransaction_ReturnInt()
+        {
+            TransactionClass transactionSelect = new TransactionClass1();
+            string expected = "Neha Kejriwal ";
+            string actual = transactionSelect.RetrievebasedOnDate();
+            Assert.AreEqual(expected, actual);
+        }
     }
 
 
 }
-
-    
-
-
