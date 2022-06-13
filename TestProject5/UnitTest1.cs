@@ -1,7 +1,7 @@
 using AddressBook;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject4
+namespace TestProject5
 {
     [TestClass]
     public class UnitTest1
@@ -10,7 +10,7 @@ namespace TestProject4
         [TestInitialize]
         public void SetUp()
         {
-            addressBookRepository = new AddressBookRespitory();
+            addressBookRepository = new AddressBookRepository();
         }
 
         //Usecase 2:Ability to insert new Contacts to Address Book
@@ -40,12 +40,20 @@ namespace TestProject4
             int actual = addressBookRepository.UpdateQueryBasedonName();
             Assert.AreEqual(expected, actual);
         }
-        //UseCase 3: Modify Existing Contact using their name
+        //UseCase 4: Delete person based on Name
         [TestMethod]
         public void GivenDeleteQuery_ReturnOne()
         {
             int expected = 1;
             int actual = addressBookRepository.DeletePersonBasedonName();
+            Assert.AreEqual(expected, actual);
+        }
+        //UseCase 5: Ability to Retrieve Person belonging to a City or State from the Address Book
+        [TestMethod]
+        public void GivenRetrieveQuery_ReturnString()
+        {
+            string expected = "Harsha Pramela meena ";
+            string actual = addressBookRepository.PrintDataBasedOnCity("Bangalore", "Karnataka");
             Assert.AreEqual(expected, actual);
         }
     }
