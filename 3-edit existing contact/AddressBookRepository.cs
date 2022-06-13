@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2_insert_into_table
+namespace _3_edit_existing_contact
 {
     public class AddressBookRepository
     {
@@ -54,6 +54,42 @@ namespace _2_insert_into_table
                 sqlConnection.Close();
             }
             return result;
+        }
+        //UseCase 3: Modify Existing Contact using their name
+        public int UpdateQueryBasedonName()
+        {
+            //Open Connection
+            sqlConnection.Open();
+            string query = "Update Address_Book_Table set Email = 'RaniMalvi@gmail.com' where FirstName = 'Rani'";
+            //Pass query to TSql
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            int result = sqlCommand.ExecuteNonQuery();
+            if (result != 0)
+            {
+                Console.WriteLine("Updated!");
+            }
+            else
+            {
+                Console.WriteLine("Not Updated!");
+            }
+
+            //Close Connection
+            sqlConnection.Close();
+            return result;
+        }
+
+        public void DisplayEmployeeDetails(SqlDataReader sqlDataReader)
+        {
+
+            addressBook.FirstName = Convert.ToString(sqlDataReader["FirstName"]);
+            addressBook.LastName = Convert.ToString(sqlDataReader["LastName"]);
+            addressBook.Address = Convert.ToString(sqlDataReader["Address"] + " " + sqlDataReader["City"] + " " + sqlDataReader["State"] + " " + sqlDataReader["zip"]);
+            addressBook.PhoneNumber = Convert.ToInt64(sqlDataReader["PhoneNumber"]);
+            addressBook.Email = Convert.ToString(sqlDataReader["email"]);
+            addressBook.AddressBookName = Convert.ToString(sqlDataReader["AddressBookName"]);
+            addressBook.Type = Convert.ToString(sqlDataReader["TypeOfAddressBook"]);
+            Console.WriteLine("{0} | {1} | {2} | {3} | {4} | {5} | {6}", addressBook.FirstName, addressBook.LastName, addressBook.Address, addressBook.PhoneNumber, addressBook.Email, addressBook.AddressBookName, addressBook.Type);
+
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2_insert_into_table
+namespace _3_edit_existing_contact
 {
     public class ContactDataManager
     {

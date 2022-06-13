@@ -1,8 +1,6 @@
-
-using AddressBook;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject2
+namespace TestProject3
 {
     [TestClass]
     public class UnitTest1
@@ -12,7 +10,7 @@ namespace TestProject2
 
         public void SetUp()
         {
-            addressBookRepository = new AddressBookRepository();
+            addressBookRepository = new AddressBookRespitory();
         }
 
         //Usecase 2:Ability to insert new Contacts to Address Book
@@ -36,5 +34,3 @@ namespace TestProject2
         }
     }
 }
-
-    
