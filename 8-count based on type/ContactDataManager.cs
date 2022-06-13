@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _7_retrieve_count_based_on_city
+namespace _8_count_based_on_type
 {
     public class ContactDataManager
     {
@@ -19,5 +19,6 @@ namespace _7_retrieve_count_based_on_city
         public string AddressBookName { get; set; }
         public string Type { get; set; }
     }
+}
 }
 
