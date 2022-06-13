@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject12
+namespace TestProject13
 {
     [TestClass]
     public class UnitTest1
@@ -83,7 +83,7 @@ namespace TestProject12
         [TestMethod]
         public void GivenUpdateQuery_UsingTransaction_ContadIDLesserthan2_ReturnInt()
         {
-            TransactionClass transactions = new TransactionClass();
+            TransactionClass1 transactions = new TransactionClass1();
             int expected = 2;
             int actual = transactions.SetStartDateValue("update Contact_Person set Date_Added='2017-08-12' where Contact_ID <= 2");
             Assert.AreEqual(expected, actual);
@@ -92,7 +92,7 @@ namespace TestProject12
         [TestMethod]
         public void GivenSelectQuery_UsingTransaction_ReturnInt()
         {
-            TransactionClass transactionSelect = new TransactionClass();
+            TransactionClass1 transactionSelect = new TransactionClass1();
             string expected = "Neha Kejriwal ";
             string actual = transactionSelect.RetrievebasedOnDate();
             Assert.AreEqual(expected, actual);
@@ -101,9 +101,18 @@ namespace TestProject12
         [TestMethod]
         public void GivenInsertQuery_UsingTransaction_ReturnInt()
         {
-            TransactionClass transactions = new TransactionClass();
+            TransactionClass1 transactions = new TransactionClass1();
             int expected = 1;
             int actual = transactions.InsertIntoTables();
+            Assert.AreEqual(expected, actual);
+        }
+        //UC 13: Add multiple contacts to List
+        [TestMethod]
+        public void GivenSelectQuery_UsingTransaction_ReturnCount()
+        {
+            TransactionClass1 transactions = new TransactionClass1();
+            int expected = 7;
+            int actual = transactions.AddMultipleDataToList();
             Assert.AreEqual(expected, actual);
         }
     }
