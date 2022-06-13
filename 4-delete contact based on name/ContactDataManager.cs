@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3_edit_existing_contact
+namespace _4_delete_contact_based_on_name
 {
     public class ContactDataManager
     {

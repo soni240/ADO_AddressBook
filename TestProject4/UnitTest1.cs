@@ -1,13 +1,13 @@
+using AddressBook;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject3
+namespace TestProject4
 {
     [TestClass]
     public class UnitTest1
     {
         AddressBookRespitory addressBookRepository;
         [TestInitialize]
-
         public void SetUp()
         {
             addressBookRepository = new AddressBookRespitory();
@@ -32,5 +32,23 @@ namespace TestProject3
             int actual = addressBookRepository.InsertIntoTable(addressBook);
             Assert.AreEqual(expected, actual);
         }
+        //UseCase 3: Modify Existing Contact using their name
+        [TestMethod]
+        public void GivenUpdateQuery_ReturnOne()
+        {
+            int expected = 1;
+            int actual = addressBookRepository.UpdateQueryBasedonName();
+            Assert.AreEqual(expected, actual);
+        }
+        //UseCase 3: Modify Existing Contact using their name
+        [TestMethod]
+        public void GivenDeleteQuery_ReturnOne()
+        {
+            int expected = 1;
+            int actual = addressBookRepository.DeletePersonBasedonName();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
+
+    

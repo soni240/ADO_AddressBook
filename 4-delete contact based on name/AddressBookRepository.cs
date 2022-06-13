@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3_edit_existing_contact
+namespace _4_delete_contact_based_on_name
 {
     public class AddressBookRepository
     {
@@ -77,6 +77,28 @@ namespace _3_edit_existing_contact
             sqlConnection.Close();
             return result;
         }
+        //UseCase 4-Delete Contact using their name
+        public int DeletePersonBasedonName()
+        {
+            //Open Connection
+            sqlConnection.Open();
+            string query = "delete from Address_Book_Table where FirstName = 'Anita' and LastName = 'Vargheese'";
+            //Pass query to TSql
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            int result = sqlCommand.ExecuteNonQuery();
+            if (result != 0)
+            {
+                Console.WriteLine("Updated!");
+            }
+            else
+            {
+                Console.WriteLine("Not Updated!");
+            }
+
+            //Close Connection
+            sqlConnection.Close();
+            return result;
+        }
 
         public void DisplayEmployeeDetails(SqlDataReader sqlDataReader)
         {
@@ -93,6 +115,7 @@ namespace _3_edit_existing_contact
         }
     }
 }
+
 
     
 
