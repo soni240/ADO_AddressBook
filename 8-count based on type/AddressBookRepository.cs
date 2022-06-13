@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace _8_count_based_on_type
 {
     public class AddressBookRepository
     {
@@ -179,7 +179,6 @@ namespace AddressBook
 
         public void DisplayEmployeeDetails(SqlDataReader sqlDataReader)
         {
-
             addressBook.FirstName = Convert.ToString(sqlDataReader["FirstName"]);
             addressBook.LastName = Convert.ToString(sqlDataReader["LastName"]);
             addressBook.Address = Convert.ToString(sqlDataReader["Address"] + " " + sqlDataReader["City"] + " " + sqlDataReader["State"] + " " + sqlDataReader["zip"]);
@@ -192,6 +191,4 @@ namespace AddressBook
         }
     }
 }
-
     
-

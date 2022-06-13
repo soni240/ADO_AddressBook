@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace _8_count_based_on_type
 {
     public class ContactDataManager
     {
@@ -20,7 +20,5 @@ namespace AddressBook
         public string Type { get; set; }
     }
 }
-
-
-    
+}
 
