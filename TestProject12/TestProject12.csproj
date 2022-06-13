@@ -14,9 +14,4 @@
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\11-insert into table using transaction\11-insert into table using transaction.csproj" />
-    <ProjectReference Include="..\AddressBook\AddressBook.csproj" />
-  </ItemGroup>
-
 </Project>
