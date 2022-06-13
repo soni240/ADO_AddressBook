@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace _12_retrieve_based_on_date
 {
     public class ContactDataManager
     {
@@ -20,7 +20,4 @@ namespace AddressBook
         public string Type { get; set; }
     }
 }
-
-
-    
 
