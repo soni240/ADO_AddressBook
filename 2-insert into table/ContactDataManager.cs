@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace _2_insert_into_table
 {
     public class ContactDataManager
     {
@@ -20,7 +20,4 @@ namespace AddressBook
         public string Type { get; set; }
     }
 }
-
-
-    
 
