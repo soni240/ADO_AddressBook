@@ -1,7 +1,6 @@
-using AddressBook;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject
+namespace TestProject13
 {
     [TestClass]
     public class UnitTest1
@@ -120,5 +119,3 @@ namespace TestProject
 
 
 }
-
-    

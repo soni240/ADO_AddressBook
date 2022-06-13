@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace _13_insert_multiple_data_to_list
 {
     public class TransactionClass1
     {
@@ -198,4 +196,5 @@ namespace AddressBook
 }
 
     
+
 

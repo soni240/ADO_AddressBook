@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace _13_insert_multiple_data_to_list
 {
     public class AddressBookRepository
     {
