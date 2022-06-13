@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace _3_edit_existing_contact
 {
     public class AddressBookRepository
     {
@@ -77,105 +77,6 @@ namespace AddressBook
             sqlConnection.Close();
             return result;
         }
-        //UseCase 4-Delete Contact using their name
-        public int DeletePersonBasedonName()
-        {
-            //Open Connection
-            sqlConnection.Open();
-            string query = "delete from Address_Book_Table where FirstName = 'Anita' and LastName = 'Vargheese'";
-            //Pass query to TSql
-            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-            int result = sqlCommand.ExecuteNonQuery();
-            if (result != 0)
-            {
-                Console.WriteLine("Updated!");
-            }
-            else
-            {
-                Console.WriteLine("Not Updated!");
-            }
-
-            //Close Connection
-            sqlConnection.Close();
-            return result;
-        }
-        //UseCase 5: Ability to Retrieve Person belonging to a City or State from the Address Book
-        public string PrintDataBasedOnCity(string city, string State)
-        {
-            string nameList = "";
-            //query to be executed
-            string query = @"select * from Address_Book_Table where City =" + "'" + city + "' or State=" + "'" + State + "'";
-            SqlCommand sqlCommand = new SqlCommand(query, this.sqlConnection);
-            sqlConnection.Open();
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.HasRows)
-            {
-                while (sqlDataReader.Read())
-                {
-                    DisplayEmployeeDetails(sqlDataReader);
-                    nameList += sqlDataReader["FirstName"].ToString() + " ";
-                }
-            }
-            return nameList;
-        }
-        //UC 6: Ability to Retrieve Count of Person belonging to a City or State
-        public string PrintCountDataBasedOnCity()
-        {
-            string nameList = "";
-            //query to be executed
-            string query = @"select Count(*),state,City from Address_Book_Table Group by state,City";
-            SqlCommand sqlCommand = new SqlCommand(query, this.sqlConnection);
-            sqlConnection.Open();
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.HasRows)
-            {
-                while (sqlDataReader.Read())
-                {
-                    Console.WriteLine("{0} \t {1} \t {2}", sqlDataReader[0], sqlDataReader[1], sqlDataReader[2]);
-                    nameList += sqlDataReader[0].ToString() + " ";
-                }
-            }
-            return nameList;
-        }
-        //UC 7: Ability to retrieve entries sorted alphabetically
-        public string PrintSortDataBasedOnCity(string City)
-        {
-            string nameList = "";
-            //query to be executed
-            string query = "select * from Address_Book_Table where City='" + City + "' order by(FirstName)";
-            SqlCommand sqlCommand = new SqlCommand(query, this.sqlConnection);
-            sqlConnection.Open();
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.HasRows)
-            {
-                while (sqlDataReader.Read())
-                {
-                    DisplayEmployeeDetails(sqlDataReader);
-                    nameList += sqlDataReader["FirstName"].ToString() + " ";
-                }
-            }
-            return nameList;
-        }
-        //UC 8: Ability to get number of contact persons by Type
-        public string ContactDataBasedOnType()
-        {
-            string nameList = "";
-            //query to be executed
-            string query = @"select Count(*) as NumberOfContacts,Type from Address_Book_Table Group by Type";
-            SqlCommand sqlCommand = new SqlCommand(query, this.sqlConnection);
-            sqlConnection.Open();
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.HasRows)
-            {
-                while (sqlDataReader.Read())
-                {
-                    Console.WriteLine("{0} \t {1}", sqlDataReader[0], sqlDataReader[1]);
-                    nameList += sqlDataReader[0].ToString() + " ";
-                }
-            }
-            return nameList;
-        }
-
 
         public void DisplayEmployeeDetails(SqlDataReader sqlDataReader)
         {
