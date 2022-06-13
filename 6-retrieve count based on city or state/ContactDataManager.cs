@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _5_retrieve_based_on_city_or_state
+namespace _6_retrieve_count_based_on_city_or_state
 {
     public class ContactDataManager
     {

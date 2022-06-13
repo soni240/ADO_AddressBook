@@ -1,16 +1,16 @@
-using AddressBook;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject5
+namespace TestProject6
 {
     [TestClass]
     public class UnitTest1
     {
+        
         AddressBookRespitory addressBookRepository;
         [TestInitialize]
         public void SetUp()
         {
-            addressBookRepository = new AddressBookRepository();
+            addressBookRepository = new AddressBookRespitory();
         }
 
         //Usecase 2:Ability to insert new Contacts to Address Book
@@ -54,6 +54,14 @@ namespace TestProject5
         {
             string expected = "Harsha Pramela meena ";
             string actual = addressBookRepository.PrintDataBasedOnCity("Bangalore", "Karnataka");
+            Assert.AreEqual(expected, actual);
+        }
+        //UC 6: Ability to Retrieve Count of Person belonging to a City or State
+        [TestMethod]
+        public void GivenCountQuery_ReturnString()
+        {
+            string expected = "2 1 3 1 ";
+            string actual = addressBookRepository.PrintCountDataBasedOnCity();
             Assert.AreEqual(expected, actual);
         }
     }
