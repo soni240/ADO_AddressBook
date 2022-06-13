@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AddressBook
+namespace _11_insert_into_table_using_transaction
 {
     public class AddressBookRepository
     {
@@ -193,5 +193,5 @@ namespace AddressBook
     }
 }
 
-    
 
+   
