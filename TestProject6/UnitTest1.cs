@@ -1,11 +1,11 @@
-using AddressBook;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject
+namespace TestProject6
 {
     [TestClass]
     public class UnitTest1
     {
+        
         AddressBookRespitory addressBookRepository;
         [TestInitialize]
         public void SetUp()
@@ -61,64 +61,10 @@ namespace TestProject
         public void GivenCountQuery_ReturnString()
         {
             string expected = "2 1 3 1 ";
-            string actual = addressBookRepository.PrintCountDataBasedOnCityorState();
-            Assert.AreEqual(expected, actual);
-        }
-        //UC 7: Ability to retrieve entries sorted alphabetically
-        [TestMethod]
-        public void GivenSortQuery_ReturnString()
-        {
-            string expected = "Harsha Pramela ";
-            string actual = addressBookRepository.PrintSortDataBasedOnCity("Bangalore");
-            Assert.AreEqual(expected, actual);
-        }
-        //UC 8: Ability to get number of contact persons by Type
-        [TestMethod]
-        public void GivenCountTypeQuery_ReturnString()
-        {
-            string expected = "1 5 1 ";
-            string actual = addressBookRepository.ContactDataBasedOnType();
-            Assert.AreEqual(expected, actual);
-        }
-        //UC 11: Add Date_Added Column if Contad_ID>2
-        [TestMethod]
-        public void GivenUpdateQuery_UsingTransaction_ContadIDLesserthan2_ReturnInt()
-        {
-            TransactionClass1 transactions = new TransactionClass1();
-            int expected = 2;
-            int actual = transactions.SetStartDateValue("update Contact_Person set Date_Added='2017-08-12' where Contact_ID <= 2");
-            Assert.AreEqual(expected, actual);
-        }
-        //UC 11: Insert into Table using Transactions
-        [TestMethod]
-        public void GivenSelectQuery_UsingTransaction_ReturnInt()
-        {
-            TransactionClass1 transactionSelect = new TransactionClass1();
-            string expected = "Neha Kejriwal ";
-            string actual = transactionSelect.RetrievebasedOnDate();
-            Assert.AreEqual(expected, actual);
-        }
-        //UC 12: Insert into Table using Transactions
-        [TestMethod]
-        public void GivenInsertQuery_UsingTransaction_ReturnInt()
-        {
-            TransactionClass1 transactions = new TransactionClass1();
-            int expected = 1;
-            int actual = transactions.InsertIntoTables();
-            Assert.AreEqual(expected, actual);
-        }
-        //UC 13: Add multiple contacts to List
-        [TestMethod]
-        public void GivenSelectQuery_UsingTransaction_ReturnCount()
-        {
-            TransactionClass1 transactions = new TransactionClass1();
-            int expected = 7;
-            int actual = transactions.AddMultipleDataToList();
+            string actual = addressBookRepository.PrintCountDataBasedOnCity();
             Assert.AreEqual(expected, actual);
         }
     }
-
-
 }
 
     
