@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _8_count_based_on_type
+namespace _9_10_solve_ER_implementation
 {
     public class ContactDataManager
     {
@@ -19,6 +19,5 @@ namespace _8_count_based_on_type
         public string AddressBookName { get; set; }
         public string Type { get; set; }
     }
-}
 }
 
